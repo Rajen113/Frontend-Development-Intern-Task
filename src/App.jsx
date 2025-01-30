@@ -6,6 +6,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Layout from './Layout/LayOut'
 import UserList from './userList/UserList'
+import UserInfo from './userInfo/UserInfo';
+UserInfo
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
       <Router>
           <Routes>
               <Route path="/" element={<Layout><UserList/></Layout>} />
+              <Route path='/user/:id' element={<Layout><UserInfo/></Layout>}/>
           </Routes>
       </Router>
   );

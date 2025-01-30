@@ -33,40 +33,39 @@ function UserList() {
     );
 
     return (
-        <div className="container mx-auto p-4">
-            <h1 className="text-3xl font-bold text-center mb-6">User Management App</h1>
+        <div className="container mx-auto p-4 bg-gradient-to-r from-blue-100 via-white to-blue-200">
             
-            <div className="lg:flex gap-4 mb-4">
+            <div className="flex gap-4 mb-8 items-center justify-center">
                 <input
                     type="text"
                     placeholder="Search by name or username..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-full sm:w-3/4 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full sm:w-1/2 p-2 text-sm border-2 border-gray-300 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-600 transition ease-in-out"
                 />
                 <button 
                     onClick={fetchUsers} 
-                    className="w-full sm:w-1/4 p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300"
+                    className="w-full sm:w-1/4 p-3 text-sm bg-indigo-500 text-white rounded-md shadow-lg hover:bg-indigo-600 transition duration-300"
                 >
                     Refresh
                 </button>
             </div>
 
-            {loading && <p className="text-center text-gray-500 mt-4">Loading users...</p>}
-            {error && <p className="text-center text-red-500 mt-4">{error}</p>}
+            {loading && <p className="text-center text-gray-500 mt-4 text-lg">Loading users...</p>}
+            {error && <p className="text-center text-red-500 mt-4 text-lg">{error}</p>}
 
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <div className="flex flex-wrap justify-center gap-8 mt-8">
                 {filteredUsers.map((user) => (
-                    <div key={user.id} className="bg-white p-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 rounded-lg shadow-md hover:bg-gray-50 transition duration-300">
+                    <div key={user.id} className="bg-white p-6 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
                         <Link 
                             to={`/user/${user.id}`} 
-                            className="text-xl font-semibold text-blue-600 hover:underline"
+                            className="text-2xl font-bold text-indigo-700 hover:text-indigo-900 hover:underline"
                         >
-                            {user.name}
+                         {user.name}
                         </Link>
-                        <p className="text-gray-600">@{user.username}</p>
-                        <p className="text-gray-800">{user.email}</p>
-                        <p className="text-gray-600">
+                        <p className="text-lg text-gray-500 mt-2">UserName-@{user.username}</p>
+                        <p className="text-gray-800 mt-2">Email-{user.email}</p>
+                        <p className="text-gray-600 mt-2"> Address-
                             {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}`}
                         </p>
                     </div>
