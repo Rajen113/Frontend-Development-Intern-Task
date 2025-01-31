@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Layout from './Layout/LayOut'
-import UserList from './userList/UserList'
-import UserInfo from './userInfo/UserInfo';
+import Layout from './components/layout/Layout'
+import UserList from './components//userList/UserList'
+import UserInfo from './components/userInfo/UserInfo'
 UserInfo
 
 

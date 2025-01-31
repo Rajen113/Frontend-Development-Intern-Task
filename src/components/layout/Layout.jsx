@@ -13,7 +13,7 @@ const Layout = ({children}) => {
             </div>
         </nav>
 
-        <main className="bg-gray-50 min-h-screen p-4">
+        <main className="bg-gradient-to-r from-blue-100 via-zinc-100 to-blue-200 min-h-screen p-4">
             <div className="container mx-auto">{children}</div>
         </main>
 
