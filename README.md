@@ -1,8 +1,20 @@
-# React + Vite
+User Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React application that fetches user data from an API, displays a list of users, and allows viewing detailed information about each user.
 
-Currently, two official plugins are available:
+📌 Features
+✔ Fetches user data from an API
+✔ Search users by name or username
+✔ View user details like email, address, and company
+✔ Responsive design using Tailwind CSS
+✔ Refresh user data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🛠 Technologies Used
+React (Frontend)
+React Router (Navigation)
+Axios (API Requests)
+Tailwind CSS (Styling)
+JSONPlaceholder API (Mock User Data)
+
+
+

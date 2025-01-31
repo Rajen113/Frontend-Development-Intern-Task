@@ -21,25 +21,35 @@ const UserInfo = () => {
       });
   }, [id]);
 
-  if (loading) return <p className="text-center text-gray-600">Loading...</p>;
-  if (error) return <p className="text-center text-red-500">{error}</p>;
+  if (loading) return <p className="text-center text-gray-600 text-lg italic">Loading...</p>;
+  if (error) return <p className="text-center text-red-500 text-lg font-bold">{error}</p>;
+  if (!user) return null; 
 
   return (
-    <div className="max-w-lg mx-auto p-8 bg-zinc-200 rounded-lg shadow-xl mt-8">
-      <h1 className="text-3xl font-extrabold text-gray-800 mb-4">{user.name}</h1>
-      <p className="text-lg font-semibold text-gray-600">{user.username}</p>
-      <p className="text-gray-500 mt-2">{user.email}</p>
-      <p className="text-gray-500 mt-1">{user.phone}</p>
-      <p className="text-blue-600 underline mt-2">
-        <a href={`https://${user.website}`} target="_blank" rel="noopener noreferrer">
+    <div className="max-w-lg mx-auto p-8 bg-zinc-200 rounded-lg shadow-xl mt-8 font-sans">
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-4 uppercase">{user.name}</h1>
+      <p className="text-lg font-semibold text-gray-600 italic">{user.username}</p>
+      <p className="text-gray-500 mt-2 text-md">Email-{user.email}</p>
+      <p className="text-gray-500 mt-1 text-md">Phone No -{user.phone}</p>
+
+      <p className="text-blue-600 mt-2 text-lg font-medium">
+        <span className="text-gray-700 font-semibold">Website:- </span>
+        <a className="underline" href={`https://${user.website}`} target="_blank" rel="noopener noreferrer">
           {user.website}
         </a>
       </p>
-      <p className="text-gray-600 mt-4">
-        <span className="font-semibold text-gray-700">Address:</span> {`${user.address.street}, ${user.address.suite}, ${user.address.city}, ${user.address.zipcode}`}
-      </p>
-      <p className="text-gray-600 mt-4">
-        <span className="font-semibold text-gray-700">Company:</span> {user.company.name}
+
+
+      <div className="text-gray-600 mt-4">
+        <h2 className="font-semibold text-gray-700 text-xl underline">Address:-</h2>
+        <p className="text-md">📍 <span className="font-medium">Street:</span> {user.address?.street}</p>
+        <p className="text-md">🏢 <span className="font-medium">Suite:</span> {user.address?.suite}</p>
+        <p className="text-md">🏙️ <span className="font-medium">City:</span> {user.address?.city}</p>
+        <p className="text-md">📮 <span className="font-medium">Zipcode:</span> {user.address?.zipcode}</p>
+      </div>
+
+      <p className="text-gray-600 mt-4 text-lg">
+        <span className="font-semibold text-gray-700">🏢 Company:-</span> {user.company?.name}
       </p>
     </div>
   );
