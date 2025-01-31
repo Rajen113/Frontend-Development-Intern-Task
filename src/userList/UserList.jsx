@@ -18,6 +18,7 @@ function UserList() {
         setError(null);
         try {
             const response = await axios.get(API_URL); 
+            console.log(response.data)
             setUsers(response.data); 
         } catch (err) {
             setError("Failed to load users. Please try again."); 
@@ -30,7 +31,6 @@ function UserList() {
     useEffect(() => {
         fetchUsers();
     }, []);
-
     // Filter users based on search query (name or username)
     const filteredUsers = users.filter((user) =>
         user.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -64,7 +64,7 @@ function UserList() {
             {/* Display the filtered list of users */}
             <div className="flex flex-wrap justify-center gap-8 mt-8">
                 {filteredUsers.map((user) => (
-                    <div key={user.id} className="bg-white p-6 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
+                    <div key={user.id} className="bg-zinc-100 p-6 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 rounded-lg shadow-xl transform hover:scale-105 transition duration-300 ease-in-out">
                         {/* Link to view user details */}
                         <Link 
                             to={`/user/${user.id}`} 
